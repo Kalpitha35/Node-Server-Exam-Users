@@ -65,7 +65,7 @@ exports.loginController = async (req, res) => {
 exports.allUserController = async(req,res)=>{
     console.log("inside allUserController");
     try{
-        const allUsers = await userDetails.find()
+        const allUsers = await userDetails.find({}, '-password')
         res.status(200).json(allUsers)
 
     }catch(err){
